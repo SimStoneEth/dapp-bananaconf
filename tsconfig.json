@@ -1,26 +1,54 @@
 {
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
+    "exclude": ["node_modules", ".next", ".vscode", ".husky"],
+    "include": [
+        "next-env.d.ts",
+        "lib/types/index.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "next.config.mjs"
     ],
-    "paths": {
-      "@/*": ["./*"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "esnext",
+        "jsx": "preserve",
+        "allowJs": false,
+        "noEmit": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+
+        /*
+        Strict mode enables the following ;
+        - alwaysStrict
+        - strictNullChecks
+        - strictBindCallApply
+        - strictFunctionTypes
+        - strictPropertyInitialization
+        - noImplicitAny
+        - noImplicitThis
+        - useUnknownInCatchVariables
+        */
+        "strict": true,
+
+        // Handle import aliases
+        "paths": {
+            "@/*": ["./lib/*"]
+        },
+        "typeRoots": ["lib/types/index.d.ts"],
+
+        // NextJS necessary settings
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "incremental": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ]
     }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
 }

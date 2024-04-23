@@ -1,3 +1,83 @@
 {
-  "extends": "next/core-web-vitals"
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "plugin:sonarjs/recommended",
+
+        /*
+        The following plugin uses all of the following ;
+        - eslint-plugin-react
+        - eslint-plugin-react-hooks
+        - eslint-plugin-import
+        - @typescript-eslint/parser
+        */
+        "next/core-web-vitals"
+    ],
+    "plugins": ["prefer-arrow", "simple-import-sort", "unused-imports"],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "rules": {
+                "arrow-body-style": [2, "as-needed"],
+                "curly": [2, "all"],
+                "linebreak-style": [2, "unix"],
+                "newline-after-var": [2, "always"],
+                "no-console": 1,
+                "no-else-return": [2, { "allowElseIf": false }],
+                "sort-imports": 0,
+                "import/order": 0,
+                "simple-import-sort/imports": 1,
+                "simple-import-sort/exports": 1,
+                "import/first": 1,
+                "import/newline-after-import": 1,
+                "import/no-duplicates": 1,
+                "prefer-arrow-callback": [
+                    2,
+                    {
+                        "allowNamedFunctions": false,
+                        "allowUnboundThis": false
+                    }
+                ],
+                "prefer-arrow/prefer-arrow-functions": [
+                    2,
+                    {
+                        "disallowPrototype": true,
+                        "singleReturnOnly": true
+                    }
+                ],
+                "unused-imports/no-unused-imports": 2,
+                "react/no-array-index-key": 2
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "extends": ["plugin:@typescript-eslint/recommended"],
+            "rules": {
+                "@typescript-eslint/consistent-type-imports": [
+                    2,
+                    {
+                        "fixStyle": "inline-type-imports",
+                        "prefer": "type-imports"
+                    }
+                ],
+                "@typescript-eslint/explicit-function-return-type": 2,
+                "@typescript-eslint/ban-ts-comment": 1,
+                "@typescript-eslint/array-type": 2,
+                "@typescript-eslint/prefer-as-const": 2,
+                "@typescript-eslint/prefer-for-of": 2,
+                "@typescript-eslint/consistent-type-definitions": [2, "type"]
+            }
+        }
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    }
 }

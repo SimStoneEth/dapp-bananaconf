@@ -1,0 +1,14 @@
+/.git
+/.husky
+/.next
+/.vscode
+/node_modules
+/public
+/**/*.svg
+/**/*.ico
+/**/*.css
+/**/*.md
+package.json
+.eslintrc.json
+tsconfig.json
+yarn.lock

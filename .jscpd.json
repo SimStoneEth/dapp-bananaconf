@@ -1,0 +1,5 @@
+{
+    "threshold": 30,
+    "ignore": ["**/.next/**", "**/.vscode/**", "**/node_modules/**"],
+    "absolute": true
+}
